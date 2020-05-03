@@ -1,0 +1,8 @@
+{
+  "name": "vue-intro",
+  "version": "1.0.0",
+  "description": "Intro to Vue.js",
+  "main": "index.js",
+  "author": "Nipun Paradkar",
+  "license": "MIT"
+}
