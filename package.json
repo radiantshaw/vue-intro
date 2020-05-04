@@ -6,6 +6,7 @@
   "author": "Nipun Paradkar",
   "license": "MIT",
   "dependencies": {
-    "reveal.js": "^3.9.2"
+    "reveal.js": "^3.9.2",
+    "vue": "^2.6.11"
   }
 }
