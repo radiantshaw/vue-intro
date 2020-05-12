@@ -193,6 +193,29 @@
             <button v-on:click="reverseMessage">Reverse Message</button>
           </div>
         </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,4|2|3|1-4">
+            &lt;div id=&quot;app-6&quot;&gt;
+              &lt;span&gt;{{ message }}&lt;/span&gt;
+              &lt;input v-model=&quot;message&quot;&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,6|2|3,5|4|1-6">
+            var app6 = new Vue({
+              el: '#app-6',
+              data: {
+                message: 'Hello Vue!'
+              }
+            });
+          </code></pre>
+
+          <div id="app-6" class="demo fragment">
+            <span>{{ message }}</span>
+            <input v-model="message">
+          </div>
+        </section>
       </section>
     </div>
   </div>
@@ -259,6 +282,15 @@
         reverseMessage: function() {
           this.message = this.message.split('').reverse().join('');
         }
+      }
+    });
+  </script>
+
+  <script>
+    var app6 = new Vue({
+      el: '#app-6',
+      data: {
+        message: 'Hello Vue!'
       }
     });
   </script>

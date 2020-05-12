@@ -6,18 +6,26 @@
   text-align: left;
 }
 
-#app-5.demo {
+#app-5.demo, #app-6.demo {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #app-5.demo button {
-  margin-left: 2em;
+  font-size: 1em;
   padding: 0.5em 0.8em;
   background: steelblue;
   color: white;
   border-radius: 0.2em;
   cursor: pointer;
+}
+
+#app-6 input {
   font-size: 1em;
+  padding: 0.5em 0.8em;
+  color: dimgray;
+  border-radius: 0.2em;
+  border: 0.1em solid silver;
+  width: 15em;
 }
