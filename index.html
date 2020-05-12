@@ -158,6 +158,42 @@
           </div>
         </section>
       </section>
+
+      <section>
+        <section>
+          <h3>Handling User Input</h3>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,6|2|3-5|1-6">
+            &lt;div id=&quot;app-5&quot;&gt;
+              &lt;span&gt;{{ message }}&lt;/span&gt;
+              &lt;button v-on:click=&quot;reverseMessage&quot;&gt;
+                Reverse Message
+              &lt;/button&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,11|2|3,5|4|6,10|7,9|8|1-11">
+            var app5 = new Vue({
+              el: '#app-5',
+              data: {
+                message: 'Hasta la vista!'
+              },
+              methods: {
+                reverseMessage: function() {
+                  this.message = this.message.split('').reverse().join('');
+                }
+              }
+            });
+          </code></pre>
+
+          <div id="app-5" class="demo fragment">
+            <span>{{ message }}</span>
+            <button v-on:click="reverseMessage">Reverse Message</button>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 
@@ -209,6 +245,20 @@
           'Collect the stones.',
           'Snap the fingers!'
         ]
+      }
+    });
+  </script>
+
+  <script>
+    var app5 = new Vue({
+      el: '#app-5',
+      data: {
+        message: 'Hasta la vista!'
+      },
+      methods: {
+        reverseMessage: function() {
+          this.message = this.message.split('').reverse().join('');
+        }
       }
     });
   </script>

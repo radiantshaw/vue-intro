@@ -5,3 +5,19 @@
   padding: 1em 1.5em;
   text-align: left;
 }
+
+#app-5.demo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#app-5.demo button {
+  margin-left: 2em;
+  padding: 0.5em 0.8em;
+  background: steelblue;
+  color: white;
+  border-radius: 0.2em;
+  cursor: pointer;
+  font-size: 1em;
+}
