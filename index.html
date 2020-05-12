@@ -124,6 +124,39 @@
             <span v-else>Zero</span>
           </div>
         </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,7|2,6|3,5|4|1-7">
+            &lt;div id=&quot;app-4&quot;&gt;
+              &lt;ol&gt;
+                &lt;li v-for=&quot;todo in todos&quot;&gt;
+                  {{ todo }}
+                &lt;/li&gt;
+              &lt;/ol&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,10|2|3,9|4,8|5-7|">
+            var app4 = new Vue({
+              el: '#app-4',
+              data: {
+                todos: [
+                  'Steal the gauntlet.',
+                  'Collect the stones.',
+                  'Snap the fingers!'
+                ]
+              }
+            });
+          </code></pre>
+
+          <div id="app-4" class="demo fragment">
+            <ol>
+              <li v-for="todo in todos">
+                {{ todo }}
+              </li>
+            </ol>
+          </div>
+        </section>
       </section>
     </div>
   </div>
@@ -163,6 +196,19 @@
       el: '#app-3',
       data: {
         number: -42
+      }
+    });
+  </script>
+
+  <script>
+    var app4 = new Vue({
+      el: '#app-4',
+      data: {
+        todos: [
+          'Steal the gauntlet.',
+          'Collect the stones.',
+          'Snap the fingers!'
+        ]
       }
     });
   </script>
