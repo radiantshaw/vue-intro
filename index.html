@@ -94,6 +94,37 @@
           </div>
         </section>
       </section>
+
+      <section>
+        <section>
+          <h3>Conditionals and Loops</h3>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,5|2|3|4|1-5">
+            &lt;div id=&quot;app-3&quot;&gt;
+              &lt;span v-if=&quot;number &lt; 0&quot;&gt;Negative&lt;/span&gt;
+              &lt;span v-else-if=&quot;number &gt; 0&quot;&gt;Positive&lt;/span&gt;
+              &lt;span v-else&gt;Zero&lt;/span&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,6|2|3,5|4|1-6">
+            var app3 = new Vue({
+              el: '#app-3',
+              data: {
+                number: -42
+              }
+            });
+          </code></pre>
+
+          <div id="app-3" class="demo fragment">
+            <span v-if="number < 0">Negative</span>
+            <span v-else-if="number > 0">Positive</span>
+            <span v-else>Zero</span>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 
@@ -123,6 +154,15 @@
       el: '#app-2',
       data: {
         message: 'This should be visible on hover!'
+      }
+    });
+  </script>
+
+  <script>
+    var app3 = new Vue({
+      el: '#app-3',
+      data: {
+        number: -42
       }
     });
   </script>
