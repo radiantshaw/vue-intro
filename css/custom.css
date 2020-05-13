@@ -1,5 +1,9 @@
-.slides > section:nth-child(2) h1 {
+.slides .intro-to-vue h1, .slides .progressive-definition h2 {
   text-transform: unset;
+}
+
+.slides .progressive-definition {
+  text-align: left;
 }
 
 .demo {
