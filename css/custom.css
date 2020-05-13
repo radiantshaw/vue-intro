@@ -1,9 +1,39 @@
+.slides .normcase {
+  text-transform: unset;
+}
+
 .slides .intro-to-vue h1, .slides .progressive-definition h2 {
   text-transform: unset;
 }
 
 .slides .progressive-definition {
   text-align: left;
+}
+
+.slides .founder-info {
+  display: grid;
+  grid-template-columns: 50% auto;
+  grid-template-rows: 20% auto;
+}
+
+.slides .founder-info img {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  justify-self: center;
+}
+
+.slides .founder-info h3 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-size: 1.1em;
+}
+
+.slides .founder-info ul {
+  font-size: 0.9em;
 }
 
 .demo {
