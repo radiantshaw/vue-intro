@@ -469,6 +469,78 @@
           </div>
         </section>
       </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Form Input Bindings</h2>
+        </section>
+
+        <section>
+          <h3 class="normcase">Checkboxes</h3>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers>
+            &lt;input type=&quot;checkbox&quot; id=&quot;superman&quot; value=&quot;superman&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;superman&quot;&gt;Clark Kent&lt;/label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;batman&quot; value=&quot;batman&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;batman&quot;&gt;Bruce Wayne&lt;/label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;wonder-woman&quot; value=&quot;wonder-woman&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;wonder-woman&quot;&gt;Diana Prince&lt;/label&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers>
+            var app7 = new Vue({
+              el: '...',
+              data: {
+                checkedNames: []
+              }
+            });
+          </code></pre>
+
+          <div id="app-7" class="demo fragment">
+            <input type="checkbox" id="superman" value="superman" v-model="checkedNames">
+            <label for="superman">Clark Kent</label>
+            <input type="checkbox" id="batman" value="batman" v-model="checkedNames">
+            <label for="batman">Bruce Wayne</label>
+            <input type="checkbox" id="wonder-woman" value="wonder-woman" v-model="checkedNames">
+            <label for="wonder-woman">Diana Prince</label>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="normcase">Radios</h3>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers>
+            &lt;input type=&quot;radio&quot; id=&quot;iron-man&quot; value=&quot;iron-man&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;iron-man&quot;&gt;Tony Stark&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;captain-america&quot; value=&quot;captain-america&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;captain-america&quot;&gt;Steve Rogers&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;black-widow&quot; value=&quot;black-widow&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;black-widow&quot;&gt;Natasha Romanoff&lt;/label&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers>
+            var app8 = new Vue({
+              el: '...',
+              data: {
+                picked: null
+              }
+            });
+          </code></pre>
+
+          <div id="app-8" class="demo fragment">
+            <input type="radio" id="iron-man" value="iron-man" v-model="picked">
+            <label for="iron-man">Tony Stark</label>
+            <input type="radio" id="captain-america" value="captain-america" v-model="picked">
+            <label for="captain-america">Steve Rogers</label>
+            <input type="radio" id="black-widow" value="black-widow" v-model="picked">
+            <label for="black-widow">Natasha Romanoff</label>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 
@@ -557,6 +629,24 @@
         reversedMessage: function() {
           return this.message.split('').reverse().join('');
         }
+      }
+    });
+  </script>
+
+  <script>
+    var app7 = new Vue({
+      el: '#app-7',
+      data: {
+        checkedNames: []
+      }
+    });
+  </script>
+
+  <script>
+    var app8 = new Vue({
+      el: '#app-8',
+      data: {
+        picked: null
       }
     });
   </script>
