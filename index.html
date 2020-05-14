@@ -310,6 +310,40 @@
           </code></pre>
         </section>
       </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Computed Properties</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,4|2|3|1-4">
+            &lt;div id=&quot;computed&quot;&gt;
+              &lt;p&gt;Message: {{ message }}&lt;/p&gt;
+              &lt;p&gt;Reversed message: {{ reversedMessage }}&lt;/p&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,11|2|3-5|6,10|7,9|8|1-11">
+            new Vue({
+              el: '#computed',
+              data: {
+                message: 'Hello'
+              },
+              computed: {
+                reversedMessage: function() {
+                  return this.message.split('').reverse().join('');
+                }
+              }
+            });
+          </code></pre>
+
+          <div id="computed" class="demo fragment">
+            <p>Message: {{ message }}</p>
+            <p>Reversed message: {{ reversedMessage }}</p>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 
@@ -384,6 +418,20 @@
       el: '#app-6',
       data: {
         message: 'Hello Vue!'
+      }
+    });
+  </script>
+
+  <script>
+    new Vue({
+      el: '#computed',
+      data: {
+        message: 'Hello'
+      },
+      computed: {
+        reversedMessage: function() {
+          return this.message.split('').reverse().join('');
+        }
       }
     });
   </script>
