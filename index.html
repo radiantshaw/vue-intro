@@ -116,7 +116,7 @@
             var app = new Vue({
               el: '#app',
               data: {
-                message: 'Hello Vue!'
+                message: 'May the force be with you!'
               }
             });
           </code></pre>
@@ -127,11 +127,10 @@
         </section>
 
         <section>
-          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,6|2,5|3,4|1-6">
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,5|2,4|3|1-5">
             &lt;div id=&quot;app-2&quot;&gt;
               &lt;span v-bind:title=&quot;message&quot;&gt;
-                Hover your mouse over me for a few seconds
-                to see my dynamically bound title!
+                Hover over me!
               &lt;/span&gt;
             &lt;/div&gt;
           </code></pre>
@@ -140,15 +139,14 @@
             var app = new Vue({
               el: '#app-2',
               data: {
-                message: 'This should be visible on hover!'
+                message: 'One ring to rule them all.'
               }
             });
           </code></pre>
 
           <div id="app-2" class="demo fragment">
             <span v-bind:title="message">
-              Hover your mouse over me for a few seconds
-              to see my dynamically bound title!
+              Hover over me!
             </span>
           </div>
         </section>
@@ -265,7 +263,7 @@
             var app6 = new Vue({
               el: '#app-6',
               data: {
-                message: 'Hello Vue!'
+                message: 'Great Scott!'
               }
             });
           </code></pre>
@@ -328,7 +326,7 @@
             new Vue({
               el: '#computed',
               data: {
-                message: 'Hello'
+                message: 'Yeah, Science!'
               },
               computed: {
                 reversedMessage: function() {
@@ -586,7 +584,7 @@
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Hello Vue!'
+        message: 'May the force be with you!'
       }
     });
   </script>
@@ -595,7 +593,7 @@
     var app2 = new Vue({
       el: '#app-2',
       data: {
-        message: 'This should be visible on hover!'
+        message: 'One ring to rule them all.'
       }
     });
   </script>
@@ -640,7 +638,7 @@
     var app6 = new Vue({
       el: '#app-6',
       data: {
-        message: 'Hello Vue!'
+        message: 'Great Scott!'
       }
     });
   </script>
@@ -649,7 +647,7 @@
     new Vue({
       el: '#computed',
       data: {
-        message: 'Hello'
+        message: 'Yeah, Science!'
       },
       computed: {
         reversedMessage: function() {
