@@ -36,6 +36,10 @@
   font-size: 0.9em;
 }
 
+.slides .small-text {
+  font-size: 0.8em;
+}
+
 .demo {
   background: white;
   color: dimgray;

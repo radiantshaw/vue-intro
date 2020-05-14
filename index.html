@@ -362,6 +362,68 @@
           </code></pre>
         </section>
       </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Event Modifiers</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-javascript" data-trim>
+            event.preventDefault();
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim>
+            event.stopPropagation();
+          </code></pre>
+        </section>
+
+        <section>
+          <ul>
+            <li><code>.stop</code></li>
+            <li><code>.prevent</code></li>
+            <li><code>.capture</code></li>
+            <li><code>.self</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="fragment">
+            <p class="small-text">Stop the event propagation</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;a @click.stop=&quot;doSomething&quot;&gt;&lt;/a&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Prevent default action</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;form @submit.prevent=&quot;doSomething&quot;&gt;&lt;/form&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Modifiers are chainable</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;a @click.stop.prevent=&quot;doSomething&quot;&gt;&lt;/a&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Attach to capture phase</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;div @click.capture=&quot;doSomething&quot;&gt;...&lt;/div&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Only handle if event is on self</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;div @click.self=&quot;doSomething&quot;&gt;...&lt;/div&gt;
+            </code></pre>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 
