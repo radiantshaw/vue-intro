@@ -424,6 +424,51 @@
           </div>
         </section>
       </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Key Modifiers</h2>
+        </section>
+
+        <section>
+          <div class="fragment">
+            <p class="small-text">Only handle if the key pressed is <code>enter</code></p>
+            <pre><code class="lang-html" data-trim>
+              &lt;input @keyup.enter=&quot;doSomething&quot;&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Can also use <code>keyCode</code></p>
+            <pre><code class="lang-html" data-trim>
+              &lt;input @keyup.13=&quot;doSomething&quot;&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <ul>
+            <li><code>.enter</code></li>
+            <li><code>.tab</code></li>
+            <li><code>.delete</code></li>
+            <li><code>.esc</code></li>
+            <li><code>.space</code></li>
+            <li><code>.up</code></li>
+            <li><code>.down</code></li>
+            <li><code>.left</code></li>
+            <li><code>.right</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="fragment">
+            <p class="small-text">Define custom key modifiers</p>
+            <pre><code class="lang-javascript" data-trim>
+              Vue.config.keyCodes.f1 = 112;
+            </code></pre>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 
