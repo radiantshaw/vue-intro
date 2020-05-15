@@ -11,11 +11,563 @@
   <link rel="stylesheet" href="node_modules/reveal.js/css/theme/black.css">
 
   <link rel="stylesheet" href="node_modules/reveal.js/lib/css/monokai.css">
+
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
   <div class="reveal">
-    <div class="slides"></div>
+    <div class="slides">
+      <section data-background-color="#35495e" data-background-image="img/vuejs-backdrop.png"></section>
+
+      <section>
+        <section>
+          <h1 class="normcase">Intro to <code>Vue.JS</code></h1>
+          <p>The progressive JavaScript framework</p>
+        </section>
+
+        <section class="progressive-definition">
+          <h2 class="normcase">pro &middot; gres &middot; sive</h2>
+          <p>/prəˈɡrɛsɪv/</p>
+          <p>happening or developing gradually in stages</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1 class="normcase">Facts</h1>
+        </section>
+
+        <section>
+          <h2 class="normcase">Founder</h2>
+          <div class="founder-info">
+            <h3 class="normcase">Evan You</h3>
+            <ul>
+              <li>Worked at <strong>Google</strong> as a <em>Creative Technologist</em></li>
+              <li>Was a <em>Core Dev</em> at <strong>Meteor</strong></li>
+              <li>Currently works full-time on <code>Vue.JS</code></li>
+            </ul>
+            <img src="img/evan-you.jpeg" width="320">
+          </div>
+        </section>
+
+        <section>
+          <h2 class="normcase">History</h2>
+          <ul>
+            <li>Started in late <strong>2013</strong></li>
+            <li>1st release on <strong>Feb 2014</strong></li>
+            <li>Current release is <em>v2.6.11</em></li>
+            <li>Upcoming release is <em>v3.0</em> in <strong>2020</strong></li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="img/taylor-otwell-tweet.png">
+        </section>
+
+        <section>
+          <h2 class="normcase">Today</h2>
+          <p>Vue</p>
+          <img src="img/vue-github.png">
+          <p>vs React</p>
+          <img src="img/react-github.png">
+          <p>vs Angular</p>
+          <img src="img/angular-github.png">
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1 class="normcase">Installation</h1>
+        </section>
+
+        <section>
+          <pre><code data-trim data-line-numbers="8">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;
+              &lt;!-- ... --&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+              &lt;!-- ... --&gt;
+              &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+          </code></pre>
+        </section>
+      </section>
+
+      <section>
+        <h1 class="normcase">Basics</h1>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Declarative Rendering</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,3|2|1-3">
+            &lt;div id=&quot;app&quot;&gt;
+              {{ message }}
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,6|2|3,5|4|1-6">
+            var app = new Vue({
+              el: '#app',
+              data: {
+                message: 'May the force be with you!'
+              }
+            });
+          </code></pre>
+
+          <div id="app" class="demo fragment">
+            {{ message }}
+          </div>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,5|2,4|3|1-5">
+            &lt;div id=&quot;app-2&quot;&gt;
+              &lt;span v-bind:title=&quot;message&quot;&gt;
+                Hover over me!
+              &lt;/span&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,6|2|3,5|4|1-6">
+            var app = new Vue({
+              el: '#app-2',
+              data: {
+                message: 'One ring to rule them all.'
+              }
+            });
+          </code></pre>
+
+          <div id="app-2" class="demo fragment">
+            <span v-bind:title="message">
+              Hover over me!
+            </span>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Conditionals and Loops</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,5|2|3|4|1-5">
+            &lt;div id=&quot;app-3&quot;&gt;
+              &lt;span v-if=&quot;number &lt; 0&quot;&gt;Negative&lt;/span&gt;
+              &lt;span v-else-if=&quot;number &gt; 0&quot;&gt;Positive&lt;/span&gt;
+              &lt;span v-else&gt;Zero&lt;/span&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,6|2|3,5|4|1-6">
+            var app3 = new Vue({
+              el: '#app-3',
+              data: {
+                number: -42
+              }
+            });
+          </code></pre>
+
+          <div id="app-3" class="demo fragment">
+            <span v-if="number < 0">Negative</span>
+            <span v-else-if="number > 0">Positive</span>
+            <span v-else>Zero</span>
+          </div>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,7|2,6|3,5|4|1-7">
+            &lt;div id=&quot;app-4&quot;&gt;
+              &lt;ol&gt;
+                &lt;li v-for=&quot;todo in todos&quot;&gt;
+                  {{ todo }}
+                &lt;/li&gt;
+              &lt;/ol&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,10|2|3,9|4,8|5-7|">
+            var app4 = new Vue({
+              el: '#app-4',
+              data: {
+                todos: [
+                  'Steal the gauntlet.',
+                  'Collect the stones.',
+                  'Snap the fingers!'
+                ]
+              }
+            });
+          </code></pre>
+
+          <div id="app-4" class="demo fragment">
+            <ol>
+              <li v-for="todo in todos">
+                {{ todo }}
+              </li>
+            </ol>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Handling User Input</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,6|2|3-5|1-6">
+            &lt;div id=&quot;app-5&quot;&gt;
+              &lt;span&gt;{{ message }}&lt;/span&gt;
+              &lt;button v-on:click=&quot;reverseMessage&quot;&gt;
+                Reverse Message
+              &lt;/button&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,11|2|3,5|4|6,10|7,9|8|1-11">
+            var app5 = new Vue({
+              el: '#app-5',
+              data: {
+                message: 'Hasta la vista!'
+              },
+              methods: {
+                reverseMessage: function() {
+                  this.message = this.message.split('').reverse().join('');
+                }
+              }
+            });
+          </code></pre>
+
+          <div id="app-5" class="demo fragment">
+            <span>{{ message }}</span>
+            <button v-on:click="reverseMessage">Reverse Message</button>
+          </div>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,4|2|3|1-4">
+            &lt;div id=&quot;app-6&quot;&gt;
+              &lt;span&gt;{{ message }}&lt;/span&gt;
+              &lt;input v-model=&quot;message&quot;&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,6|2|3,5|4|1-6">
+            var app6 = new Vue({
+              el: '#app-6',
+              data: {
+                message: 'Great Scott!'
+              }
+            });
+          </code></pre>
+
+          <div id="app-6" class="demo fragment">
+            <span>{{ message }}</span>
+            <input v-model="message">
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h1 class="normcase">Extra Goodies</h1>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Shorthands</h2>
+        </section>
+
+        <section>
+          <h3 class="normcase"><code>v-bind</code> Shorthand</h3>
+
+          <pre class="fragment"><code class="lang-html" data-trim>
+            &lt;a v-bind:href=&quot;url&quot;&gt; ... &lt;/a&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-html" data-trim>
+            &lt;a :href=&quot;url&quot;&gt; ... &lt;/a&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3 class="normcase"><code>v-on</code> Shorthand</h3>
+
+          <pre class="fragment"><code class="lang-html" data-trim>
+            &lt;a v-on:click=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-html" data-trim>
+            &lt;a @click=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
+          </code></pre>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Computed Properties</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers="1,4|2|3|1-4">
+            &lt;div id=&quot;computed&quot;&gt;
+              &lt;p&gt;Message: {{ message }}&lt;/p&gt;
+              &lt;p&gt;Reversed message: {{ reversedMessage }}&lt;/p&gt;
+            &lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,11|2|3-5|6,10|7,9|8|1-11">
+            new Vue({
+              el: '#computed',
+              data: {
+                message: 'Yeah, Science!'
+              },
+              computed: {
+                reversedMessage: function() {
+                  return this.message.split('').reverse().join('');
+                }
+              }
+            });
+          </code></pre>
+
+          <div id="computed" class="demo fragment">
+            <p>Message: {{ message }}</p>
+            <p>Reversed message: {{ reversedMessage }}</p>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Class Binding</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers>
+            &lt;div :class=&quot;{ active: isActive }&quot;&gt;&lt;/div&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers="1,3|2|1-3">
+            data: {
+              isActive: true
+            }
+          </code></pre>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Event Modifiers</h2>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-javascript" data-trim>
+            event.preventDefault();
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim>
+            event.stopPropagation();
+          </code></pre>
+        </section>
+
+        <section>
+          <ul>
+            <li><code>.stop</code></li>
+            <li><code>.prevent</code></li>
+            <li><code>.capture</code></li>
+            <li><code>.self</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="fragment">
+            <p class="small-text">Stop the event propagation</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;a @click.stop=&quot;doSomething&quot;&gt;&lt;/a&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Prevent default action</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;form @submit.prevent=&quot;doSomething&quot;&gt;&lt;/form&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Modifiers are chainable</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;a @click.stop.prevent=&quot;doSomething&quot;&gt;&lt;/a&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Attach to capture phase</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;div @click.capture=&quot;doSomething&quot;&gt;...&lt;/div&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Only handle if event is on self</p>
+            <pre><code class="lang-html" data-trim>
+              &lt;div @click.self=&quot;doSomething&quot;&gt;...&lt;/div&gt;
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Key Modifiers</h2>
+        </section>
+
+        <section>
+          <div class="fragment">
+            <p class="small-text">Only handle if the key pressed is <code>enter</code></p>
+            <pre><code class="lang-html" data-trim>
+              &lt;input @keyup.enter=&quot;doSomething&quot;&gt;
+            </code></pre>
+          </div>
+
+          <div class="fragment">
+            <p class="small-text">Can also use <code>keyCode</code></p>
+            <pre><code class="lang-html" data-trim>
+              &lt;input @keyup.13=&quot;doSomething&quot;&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <ul>
+            <li><code>.enter</code></li>
+            <li><code>.tab</code></li>
+            <li><code>.delete</code></li>
+            <li><code>.esc</code></li>
+            <li><code>.space</code></li>
+            <li><code>.up</code></li>
+            <li><code>.down</code></li>
+            <li><code>.left</code></li>
+            <li><code>.right</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="fragment">
+            <p class="small-text">Define custom key modifiers</p>
+            <pre><code class="lang-javascript" data-trim>
+              Vue.config.keyCodes.f1 = 112;
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2 class="normcase">Form Input Bindings</h2>
+        </section>
+
+        <section>
+          <h3 class="normcase">Checkboxes</h3>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers>
+            &lt;input type=&quot;checkbox&quot; id=&quot;superman&quot; value=&quot;superman&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;superman&quot;&gt;Clark Kent&lt;/label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;batman&quot; value=&quot;batman&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;batman&quot;&gt;Bruce Wayne&lt;/label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;wonder-woman&quot; value=&quot;wonder-woman&quot; v-model=&quot;checkedNames&quot;&gt;
+            &lt;label for=&quot;wonder-woman&quot;&gt;Diana Prince&lt;/label&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers>
+            var app7 = new Vue({
+              el: '...',
+              data: {
+                checkedNames: []
+              }
+            });
+          </code></pre>
+
+          <div id="app-7" class="demo fragment">
+            <input type="checkbox" id="superman" value="superman" v-model="checkedNames">
+            <label for="superman">Clark Kent</label>
+            <input type="checkbox" id="batman" value="batman" v-model="checkedNames">
+            <label for="batman">Bruce Wayne</label>
+            <input type="checkbox" id="wonder-woman" value="wonder-woman" v-model="checkedNames">
+            <label for="wonder-woman">Diana Prince</label>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="normcase">Radios</h3>
+        </section>
+
+        <section>
+          <pre class="fragment"><code class="lang-html" data-trim data-line-numbers>
+            &lt;input type=&quot;radio&quot; id=&quot;iron-man&quot; value=&quot;iron-man&quot; v-model=&quot;picked&quot;&gt;
+            &lt;label for=&quot;iron-man&quot;&gt;Tony Stark&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;captain-america&quot; value=&quot;captain-america&quot; v-model=&quot;picked&quot;&gt;
+            &lt;label for=&quot;captain-america&quot;&gt;Steve Rogers&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; id=&quot;black-widow&quot; value=&quot;black-widow&quot; v-model=&quot;picked&quot;&gt;
+            &lt;label for=&quot;black-widow&quot;&gt;Natasha Romanoff&lt;/label&gt;
+          </code></pre>
+
+          <pre class="fragment"><code class="lang-javascript" data-trim data-line-numbers>
+            var app8 = new Vue({
+              el: '...',
+              data: {
+                picked: null
+              }
+            });
+          </code></pre>
+
+          <div id="app-8" class="demo fragment">
+            <input type="radio" id="iron-man" value="iron-man" v-model="picked">
+            <label for="iron-man">Tony Stark</label>
+            <input type="radio" id="captain-america" value="captain-america" v-model="picked">
+            <label for="captain-america">Steve Rogers</label>
+            <input type="radio" id="black-widow" value="black-widow" v-model="picked">
+            <label for="black-widow">Natasha Romanoff</label>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h1 class="normcase">Should you care?</h1>
+      </section>
+
+      <section>
+        <h1 class="normcase">Vue.js: The Documentary</h1>
+        <div><img src="img/vue-js-docu-qr.png"></div>
+        <a href="https://youtu.be/OrxmtDw4pVI" target="_blank">youtu.be/OrxmtDw4pVI</a>
+      </section>
+
+      <section>
+        <h1 class="normcase">Learn more</h1>
+        <div><img src="img/vue-js-qr.png"></div>
+        <a href="https://vuejs.org/" target="_blank">vuejs.org</a>
+      </section>
+
+      <section>
+        <h1 class="normcase"><code>Reveal.JS</code></h1>
+        <div><img src="img/reveal-js-qr.png"></div>
+        <a href="https://revealjs.com/#/" target="_blank">revealjs.com</a>
+      </section>
+
+      <section>
+        <h1 class="normcase">Thank You!</h1>
+      </section>
+    </div>
   </div>
+
   <script src="node_modules/reveal.js/js/reveal.js"></script>
   <script>
     Reveal.initialize({
@@ -23,6 +575,103 @@
       dependencies: [
         { src: 'node_modules/reveal.js/plugin/highlight/highlight.js' }
       ]
+    });
+  </script>
+
+  <script src="node_modules/vue/dist/vue.min.js"></script>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'May the force be with you!'
+      }
+    });
+  </script>
+
+  <script>
+    var app2 = new Vue({
+      el: '#app-2',
+      data: {
+        message: 'One ring to rule them all.'
+      }
+    });
+  </script>
+
+  <script>
+    var app3 = new Vue({
+      el: '#app-3',
+      data: {
+        number: -42
+      }
+    });
+  </script>
+
+  <script>
+    var app4 = new Vue({
+      el: '#app-4',
+      data: {
+        todos: [
+          'Steal the gauntlet.',
+          'Collect the stones.',
+          'Snap the fingers!'
+        ]
+      }
+    });
+  </script>
+
+  <script>
+    var app5 = new Vue({
+      el: '#app-5',
+      data: {
+        message: 'Hasta la vista!'
+      },
+      methods: {
+        reverseMessage: function() {
+          this.message = this.message.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+
+  <script>
+    var app6 = new Vue({
+      el: '#app-6',
+      data: {
+        message: 'Great Scott!'
+      }
+    });
+  </script>
+
+  <script>
+    new Vue({
+      el: '#computed',
+      data: {
+        message: 'Yeah, Science!'
+      },
+      computed: {
+        reversedMessage: function() {
+          return this.message.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+
+  <script>
+    var app7 = new Vue({
+      el: '#app-7',
+      data: {
+        checkedNames: []
+      }
+    });
+  </script>
+
+  <script>
+    var app8 = new Vue({
+      el: '#app-8',
+      data: {
+        picked: null
+      }
     });
   </script>
 </body>
