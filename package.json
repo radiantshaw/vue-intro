@@ -4,5 +4,9 @@
   "description": "Intro to Vue.js",
   "main": "index.js",
   "author": "Nipun Paradkar",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "reveal.js": "^3.9.2",
+    "vue": "^2.6.11"
+  }
 }

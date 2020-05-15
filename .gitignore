@@ -1,0 +1,4 @@
+node_modules/
+
+# Editor files
+.DS_Store
